@@ -1,0 +1,49 @@
+﻿
+@{ ViewBag.Title = "Enter Movies"; }
+
+@model EnterMoviesModel
+<!--Form to submit the movie info-->
+<form asp-action="EnterMovies" method="post">
+
+    <label asp-for="category">Category:</label>
+    <input asp-for="category" />
+    <br />
+    <label asp-for="title">Title:</label>
+    <input asp-for="title" />
+    <br />
+    <label asp-for="year">Year:</label>
+    <input asp-for="year" />
+    <br />
+    <label asp-for="director">Director:</label>
+    <input asp-for="director" />
+    <br />
+    <label asp-for="rating">Rating:</label>
+    <select asp-for="rating">
+        <option></option>
+        <option>G</option>
+        <option>PG</option>
+        <option>PG-13</option>
+        <option>R</option>
+    </select>
+    <br />
+    <label asp-for="edited">Was the movie edited?</label>
+
+    <select asp-for="edited">
+        <option></option>
+        <option>True</option>
+        <option>False</option>
+
+    </select>
+    <br />
+    <label asp-for="lentTo">Lent To:</label>
+    <input asp-for="lentTo" />
+    <br />
+    <label asp-for="notes">Notes:</label>
+    <input asp-for="notes" />
+    <br />
+
+    <button type="submit">Save</button>
+
+    <!--Validates data according to restrictions I set out in the EnterMovies model-->
+    <div asp-validation-summary="All"></div>
+</form>

@@ -1,0 +1,77 @@
+﻿
+@{ ViewBag.Title = "Movie List"; }
+
+<!--brings an enumerable model into the page-->
+@model DallinCollinsAssignment9.Models.ViewModels.FilmListViewModel.FilmListViewModel
+   
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Rating</th>
+                <th>Edited</th>
+                <th>Lent To</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <!--loop that builds the table from the movie entries-->
+            @foreach (var x in Model.Filmes)
+            {
+            
+            <tr>
+
+                <!--doesn't allow the movie "Independence Day" to be displayed-->
+                <!--displays all the data-->
+                <td>@x.category</td>
+                <td>@x.title</td>
+                <td>@x.year</td>
+                <td>@x.director</td>
+                <td>@x.rating</td>
+                <td>@x.edited</td>
+                <td>@x.lentTo</td>
+                <td>@x.notes</td>
+                <td>@x.MovieId</td>
+                <td>
+                    <form method="get" asp-action="EditRow">
+                        <input hidden name="MovieId" value="@x.MovieId">
+                        <input hidden name="category" value="@x.category">
+                        <input hidden name="title" value="@x.title">
+                        <input hidden name="year" value="@x.year">
+                        <input hidden name="director" value="@x.director">
+                        <input hidden name="rating" value="@x.rating">
+                        <input hidden name="edited" value="@x.edited">
+                        <input hidden name="lentTo" value="@x.lentTo">
+                        <input hidden name="notes" value="@x.notes">
+
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" asp-action="DeleteRow">
+                        <input hidden name="MovieId" value="@x.MovieId">
+                        <input hidden name="category" value="@x.category">
+                        <input hidden name="title" value="@x.title">
+                        <input hidden name="year" value="@x.year">
+                        <input hidden name="director" value="@x.director">
+                        <input hidden name="rating" value="@x.rating">
+                        <input hidden name="edited" value="@x.edited">
+                        <input hidden name="lentTo" value="@x.lentTo">
+                        <input hidden name="notes" value="@x.notes">
+
+
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+
+            </tr>
+                
+            }
+</tbody>
+    </table>
+</div>
