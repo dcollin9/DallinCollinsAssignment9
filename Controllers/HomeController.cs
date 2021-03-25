@@ -53,16 +53,20 @@ namespace DallinCollinsAssignment9.Controllers
         [HttpPost]
         public IActionResult EnterMovies(EnterMoviesModel enterMovies)
         {
-
-            context.Filmes.Update(enterMovies);
-            context.SaveChanges();
-
-            //returns the view and the information from the database, excluding entries with "Independence Day"
-            return View("DisplayMovies", new FilmListViewModel
+            if (ModelState.IsValid)
             {
-                Filmes = _repository.Filmes
-            .Where(f => f.title != "Independence Day")
-            });
+                context.Filmes.Update(enterMovies);
+                context.SaveChanges();
+
+                //returns the view and the information from the database, excluding entries with "Independence Day"
+                return View("DisplayMovies", new FilmListViewModel
+                {
+                    Filmes = _repository.Filmes
+                .Where(f => f.title != "Independence Day")
+                });
+            }
+
+            return View("Index");
         }
 
         //displays all movie information
@@ -89,7 +93,9 @@ namespace DallinCollinsAssignment9.Controllers
         [HttpPost]
         public IActionResult EditMovies(EnterMoviesModel movie)
         {
-            context.Filmes.Update(movie);
+            if (ModelState.IsValid)
+            {
+                context.Filmes.Update(movie);
             context.SaveChanges();
 
             //returns the view and the information from the database, excluding entries with "Independence Day"
@@ -98,6 +104,9 @@ namespace DallinCollinsAssignment9.Controllers
                 Filmes = _repository.Filmes
             .Where(f => f.title != "Independence Day")
             });
+            }
+
+            return View("Index");
         }
 
 

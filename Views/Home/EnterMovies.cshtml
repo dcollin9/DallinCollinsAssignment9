@@ -5,47 +5,49 @@
 
 
 <!--Form to submit the movie info initially-->
-<form asp-action="EnterMovies" method="post">
+<form asp-action="EnterMovies" method="post" >
+    <div class="text-center">
+        <label asp-for="category">Category:</label>
+        <input asp-for="category" class="rounded"/>
 
-    <label asp-for="category">Category:</label>
-    <input asp-for="category" />
-    <br />
-    <label asp-for="title">Title:</label>
-    <input asp-for="title" />
-    <br />
-    <label asp-for="year">Year:</label>
-    <input asp-for="year" />
-    <br />
-    <label asp-for="director">Director:</label>
-    <input asp-for="director" />
-    <br />
-    <label asp-for="rating">Rating:</label>
-    <select asp-for="rating">
-        <option></option>
-        <option>G</option>
-        <option>PG</option>
-        <option>PG-13</option>
-        <option>R</option>
-    </select>
-    <br />
-    <label asp-for="edited">Was the movie edited?</label>
+        <br />
+        <label asp-for="title">Title:</label>
+        <input asp-for="title" class="rounded"/>
+        <br />
+        <label asp-for="year">Year:</label>
+        <input asp-for="year" class="rounded"/>
+        <br />
+        <label asp-for="director">Director:</label>
+        <input asp-for="director" class="rounded"/>
+        <br />
+        <label asp-for="rating">Rating:</label>
+        <select asp-for="rating" class="rounded">
+            <option></option>
+            <option>G</option>
+            <option>PG</option>
+            <option>PG-13</option>
+            <option>R</option>
+        </select>
+        <br />
+        <label asp-for="edited">Was the movie edited?</label>
 
-    <select asp-for="edited">
-        <option></option>
-        <option>True</option>
-        <option>False</option>
+        <select asp-for="edited" class="rounded">
+            <option></option>
+            <option>True</option>
+            <option>False</option>
 
-    </select>
-    <br />
-    <label asp-for="lentTo">Lent To:</label>
-    <input asp-for="lentTo" />
-    <br />
-    <label asp-for="notes">Notes:</label>
-    <input asp-for="notes" />
-    <br />
+        </select>
+        <br />
+        <label asp-for="lentTo">Lent To:</label>
+        <input asp-for="lentTo" class="rounded"/>
+        <br />
+        <label asp-for="notes">Notes:</label>
+        <input asp-for="notes" class="rounded"/>
+        <br />
 
-    <button type="submit">Save</button>
+        <button type="submit" class="btn btn-primary">Save</button>
 
-    <!--Validates data according to restrictions I set out in the EnterMovies model-->
-    <div asp-validation-summary="All"></div>
+        <!--Validates data according to restrictions I set out in the EnterMovies model-->
+        <div asp-validation-summary="All"></div>
+    </div>
 </form>

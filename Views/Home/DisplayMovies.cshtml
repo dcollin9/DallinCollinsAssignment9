@@ -5,7 +5,7 @@
 @model DallinCollinsAssignment9.Models.ViewModels.FilmListViewModel.FilmListViewModel
    
 <div>
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Category</th>
@@ -36,7 +36,7 @@
                 <td>@x.edited</td>
                 <td>@x.lentTo</td>
                 <td>@x.notes</td>
-                <td>@x.MovieId</td>
+                
                 <td>
 
                     <!--Form for editing the record-->
@@ -51,7 +51,7 @@
                         <input hidden name="lentTo" value="@x.lentTo">
                         <input hidden name="notes" value="@x.notes">
 
-                        <button type="submit">Edit</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                     </form>
                 </td>
                 <td>
@@ -68,7 +68,7 @@
                         <input hidden name="notes" value="@x.notes">
 
 
-                        <button type="submit">Delete</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
 
