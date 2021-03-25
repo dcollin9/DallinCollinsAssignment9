@@ -7,8 +7,8 @@ namespace DallinCollinsAssignment9.Models
 {
     public interface FilmRepository
     {
-        //creates an iqueryable of type Project, which is what tells it the format of the model
 
+        //creates an iqueryable of type Project, which is what tells it the format of the model
         IQueryable<EnterMoviesModel> Filmes { get; }
 
     }

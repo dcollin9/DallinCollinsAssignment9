@@ -5,20 +5,25 @@
 <!--Form to submit the edited movie info movie info-->
 <form asp-action="EditMovies" method="post" >
     <div class="text-center">
+
         <input hidden asp-for="MovieId" value="@Model.MovieId" />
+
         <label asp-for="category">Category:</label>
         <input asp-for="category" value="@Model.category" class="rounded" />
-
         <br />
+
         <label asp-for="title">Title:</label>
         <input asp-for="title" value="@Model.title" class="rounded"/>
         <br />
+
         <label asp-for="year">Year:</label>
         <input asp-for="year" value="@Model.year" class="rounded"/>
         <br />
+
         <label asp-for="director">Director:</label>
         <input asp-for="director" value="@Model.director" class="rounded"/>
         <br />
+
         <label asp-for="rating">Rating:</label>
         <select asp-for="rating" value="@Model.rating" class="rounded">
             <option></option>
@@ -28,8 +33,8 @@
             <option>R</option>
         </select>
         <br />
-        <label asp-for="edited">Was the movie edited?</label>
 
+        <label asp-for="edited">Was the movie edited?</label>
         <select asp-for="edited" class="rounded">
             <option></option>
             <option>True</option>
@@ -37,9 +42,11 @@
 
         </select>
         <br />
+
         <label asp-for="lentTo">Lent To:</label>
         <input asp-for="lentTo" value="@Model.lentTo" class="rounded"/>
         <br />
+
         <label asp-for="notes">Notes:</label>
         <input asp-for="notes" value="@Model.notes"class="rounded"/>
         <br />

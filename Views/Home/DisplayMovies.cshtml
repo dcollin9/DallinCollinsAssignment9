@@ -24,57 +24,57 @@
             @foreach (var x in Model.Filmes)
             {
             
-            <tr>
+                <tr>
 
                 
-                <!--displays all the data-->
-                <td>@x.category</td>
-                <td>@x.title</td>
-                <td>@x.year</td>
-                <td>@x.director</td>
-                <td>@x.rating</td>
-                <td>@x.edited</td>
-                <td>@x.lentTo</td>
-                <td>@x.notes</td>
+                    <!--displays all the data-->
+                    <td>@x.category</td>
+                    <td>@x.title</td>
+                    <td>@x.year</td>
+                    <td>@x.director</td>
+                    <td>@x.rating</td>
+                    <td>@x.edited</td>
+                    <td>@x.lentTo</td>
+                    <td>@x.notes</td>
                 
-                <td>
+                    <td>
 
-                    <!--Form for editing the record-->
-                    <form method="get" asp-action="EditRow">
-                        <input hidden name="MovieId" value="@x.MovieId">
-                        <input hidden name="category" value="@x.category">
-                        <input hidden name="title" value="@x.title">
-                        <input hidden name="year" value="@x.year">
-                        <input hidden name="director" value="@x.director">
-                        <input hidden name="rating" value="@x.rating">
-                        <input hidden name="edited" value="@x.edited">
-                        <input hidden name="lentTo" value="@x.lentTo">
-                        <input hidden name="notes" value="@x.notes">
+                        <!--Form for editing the record-->
+                        <form method="get" asp-action="EditRow">
+                            <input hidden name="MovieId" value="@x.MovieId">
+                            <input hidden name="category" value="@x.category">
+                            <input hidden name="title" value="@x.title">
+                            <input hidden name="year" value="@x.year">
+                            <input hidden name="director" value="@x.director">
+                            <input hidden name="rating" value="@x.rating">
+                            <input hidden name="edited" value="@x.edited">
+                            <input hidden name="lentTo" value="@x.lentTo">
+                            <input hidden name="notes" value="@x.notes">
 
-                        <button type="submit" class="btn btn-primary">Edit</button>
-                    </form>
-                </td>
-                <td>
-                    <!--Form for deleting the record-->
-                    <form method="post" asp-action="DeleteRow">
-                        <input hidden name="MovieId" value="@x.MovieId">
-                        <input hidden name="category" value="@x.category">
-                        <input hidden name="title" value="@x.title">
-                        <input hidden name="year" value="@x.year">
-                        <input hidden name="director" value="@x.director">
-                        <input hidden name="rating" value="@x.rating">
-                        <input hidden name="edited" value="@x.edited">
-                        <input hidden name="lentTo" value="@x.lentTo">
-                        <input hidden name="notes" value="@x.notes">
+                            <button type="submit" class="btn btn-primary">Edit</button>
+                        </form>
+                    </td>
+                    <td>
+                        <!--Form for deleting the record-->
+                        <form method="post" asp-action="DeleteRow">
+                            <input hidden name="MovieId" value="@x.MovieId">
+                            <input hidden name="category" value="@x.category">
+                            <input hidden name="title" value="@x.title">
+                            <input hidden name="year" value="@x.year">
+                            <input hidden name="director" value="@x.director">
+                            <input hidden name="rating" value="@x.rating">
+                            <input hidden name="edited" value="@x.edited">
+                            <input hidden name="lentTo" value="@x.lentTo">
+                            <input hidden name="notes" value="@x.notes">
 
 
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
 
-            </tr>
+                </tr>
                 
             }
-</tbody>
+        </tbody>
     </table>
 </div>

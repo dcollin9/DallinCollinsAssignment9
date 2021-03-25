@@ -21,6 +21,7 @@ namespace DallinCollinsAssignment9.Controllers
         public IApplicationBuilder _app;
         private FilmDBContext context { get; set; }
 
+
         //constructor for home controller
         public HomeController(ILogger<HomeController> logger, FilmRepository repository, FilmDBContext con)
         {
@@ -30,11 +31,13 @@ namespace DallinCollinsAssignment9.Controllers
 
         }
 
+
         //takes user to home page
         public IActionResult Index()
         {
             return View();
         }
+
 
         //takes users to the "Podcasts" page
         public IActionResult MyPodcasts()
@@ -42,12 +45,14 @@ namespace DallinCollinsAssignment9.Controllers
             return View();
         }
 
+
         //get method for the EnterMovies view
         [HttpGet]
         public IActionResult EnterMovies()
         {
             return View();
         }
+
 
         //post method for where the users enter a movie
         [HttpPost]
@@ -69,6 +74,7 @@ namespace DallinCollinsAssignment9.Controllers
             return View("Index");
         }
 
+
         //displays all movie information
         public IActionResult DisplayMovies()
         {
@@ -88,6 +94,7 @@ namespace DallinCollinsAssignment9.Controllers
         {
             return View("EditMovie", movie);
         }
+
 
         //edits the movie and saves changes to the database
         [HttpPost]
