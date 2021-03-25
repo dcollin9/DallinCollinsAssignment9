@@ -1,7 +1,8 @@
-﻿@{ ViewBag.Title = "Enter Movies"; }
+﻿@{ ViewBag.Title = "Edit Movies"; }
 
 @model EnterMoviesModel
-<!--Form to submit the movie info-->
+
+<!--Form to submit the edited movie info movie info-->
 <form asp-action="EditMovies" method="post">
     <input hidden asp-for="MovieId" value="@Model.MovieId" />
     <label asp-for="category">Category:</label>

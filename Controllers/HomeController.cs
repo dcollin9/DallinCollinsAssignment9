@@ -30,11 +30,13 @@ namespace DallinCollinsAssignment9.Controllers
 
         }
 
+        //takes user to home page
         public IActionResult Index()
         {
             return View();
         }
 
+        //takes users to the "Podcasts" page
         public IActionResult MyPodcasts()
         {
             return View();
@@ -47,21 +49,15 @@ namespace DallinCollinsAssignment9.Controllers
             return View();
         }
 
-        //post method for the EnterMovies view
+        //post method for where the users enter a movie
         [HttpPost]
         public IActionResult EnterMovies(EnterMoviesModel enterMovies)
         {
 
             context.Filmes.Update(enterMovies);
             context.SaveChanges();
-            //ensures data is valid before putting it into the temporary storage
-            //if (ModelState.IsValid)
-            //{
-            // TempMovieStorage.AddApplication(enterMovies); //calls the AddApplication method in the TempMovieStorage class and passes it the instance of the object
-            // Response.Redirect("DisplayMovies");
-            //}
 
-            //loads the EnterMovies view and passes it the instanse of enterMovies
+            //returns the view and the information from the database, excluding entries with "Independence Day"
             return View("DisplayMovies", new FilmListViewModel
             {
                 Filmes = _repository.Filmes
@@ -69,11 +65,11 @@ namespace DallinCollinsAssignment9.Controllers
             });
         }
 
-        //grabs movie information from the database and displays it
+        //displays all movie information
         public IActionResult DisplayMovies()
         {
 
-            //passes the Movies list
+            //returns the view and the information from the database, excluding entries with "Independence Day"
             return View(new FilmListViewModel
             {
                 Filmes = _repository.Filmes
@@ -81,19 +77,22 @@ namespace DallinCollinsAssignment9.Controllers
             });
         }
 
+
+        //takes user to the EditMovie page and displays the movie they chose
         [HttpGet]
         public IActionResult EditRow(EnterMoviesModel movie)
         {
             return View("EditMovie", movie);
         }
 
-        //edits the movie
+        //edits the movie and saves changes to the database
         [HttpPost]
         public IActionResult EditMovies(EnterMoviesModel movie)
         {
             context.Filmes.Update(movie);
             context.SaveChanges();
 
+            //returns the view and the information from the database, excluding entries with "Independence Day"
             return View("DisplayMovies", new FilmListViewModel
             {
                 Filmes = _repository.Filmes
@@ -101,6 +100,8 @@ namespace DallinCollinsAssignment9.Controllers
             });
         }
 
+
+        //deletes a record from the database
         [HttpPost]
         public IActionResult DeleteRow(EnterMoviesModel movie)
         {
@@ -108,6 +109,7 @@ namespace DallinCollinsAssignment9.Controllers
             context.Filmes.Remove(movie);
             context.SaveChanges();
 
+            //returns the view and the information from the database, excluding entries with "Independence Day"
             return View("DisplayMovies", new FilmListViewModel
             {
                 Filmes = _repository.Filmes

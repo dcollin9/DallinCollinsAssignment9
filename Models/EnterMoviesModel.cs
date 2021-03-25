@@ -9,7 +9,7 @@ namespace DallinCollinsAssignment9.Models
     public class EnterMoviesModel
     {
 
-        //declaring attributes of the EnterMoviesModel
+        //declaring properties of the EnterMoviesModel
         [Key, Required]
         public int MovieId { get; set; }
 

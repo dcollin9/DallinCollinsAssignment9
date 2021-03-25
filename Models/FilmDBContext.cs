@@ -17,7 +17,7 @@ namespace DallinCollinsAssignment9.Models
 
         }
 
-        //sets films
+        //sets filmes
         public DbSet<EnterMoviesModel> Filmes { get; set; }
     }
 }

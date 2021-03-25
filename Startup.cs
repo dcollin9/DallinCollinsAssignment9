@@ -26,6 +26,7 @@ namespace DallinCollinsAssignment9
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //allows me to use the dbcontext that I set up, and use a SQLite database, based on the connection string in the appsettings.json
             services.AddDbContext<FilmDBContext>(options =>
             {
                 options.UseSqlite(Configuration["ConnectionStrings:FilmConnection"]);

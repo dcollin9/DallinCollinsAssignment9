@@ -16,6 +16,7 @@ namespace DallinCollinsAssignment9.Models
             _context = context;
         }
 
+        //creates an IQueryable of Entermoviemodel called Filmes (e is intentional)
         public IQueryable<EnterMoviesModel> Filmes => _context.Filmes;
     }
 }

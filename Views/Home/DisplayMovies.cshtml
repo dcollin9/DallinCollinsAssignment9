@@ -1,7 +1,7 @@
 ﻿
 @{ ViewBag.Title = "Movie List"; }
 
-<!--brings an enumerable model into the page-->
+<!--brings the view list model onto the page (allows us to enumerate through all the info in the database)-->
 @model DallinCollinsAssignment9.Models.ViewModels.FilmListViewModel.FilmListViewModel
    
 <div>
@@ -26,7 +26,7 @@
             
             <tr>
 
-                <!--doesn't allow the movie "Independence Day" to be displayed-->
+                
                 <!--displays all the data-->
                 <td>@x.category</td>
                 <td>@x.title</td>
@@ -38,6 +38,8 @@
                 <td>@x.notes</td>
                 <td>@x.MovieId</td>
                 <td>
+
+                    <!--Form for editing the record-->
                     <form method="get" asp-action="EditRow">
                         <input hidden name="MovieId" value="@x.MovieId">
                         <input hidden name="category" value="@x.category">
@@ -53,6 +55,7 @@
                     </form>
                 </td>
                 <td>
+                    <!--Form for deleting the record-->
                     <form method="post" asp-action="DeleteRow">
                         <input hidden name="MovieId" value="@x.MovieId">
                         <input hidden name="category" value="@x.category">
